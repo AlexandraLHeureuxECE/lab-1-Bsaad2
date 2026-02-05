@@ -16,13 +16,7 @@ To run locally (optional), you can use a simple static server:
 - Draw detection
 - Status text (turn / winner / draw)
 - Restart button (no page refresh)
-
-## AI/LLM Usage
-Tool(s) used: [ChatGPT, etc.]
-What I used AI for:
-- [e.g., generating starter HTML/CSS/JS structure]
-- [e.g., implementing win/draw detection logic]
-- [e.g., improving UI styling]
+- Appearance customization: Light/Dark theme toggle (saved with localStorage)
 
 ## Files
 - `index.html` – page structure
