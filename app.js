@@ -1,6 +1,7 @@
 const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
 const restartBtn = document.getElementById("restart");
+const themeToggleBtn = document.getElementById("themeToggle");
 
 let board = Array(9).fill(null); // "X", "O", or null
 let currentPlayer = "X";
@@ -16,6 +17,29 @@ const WIN_LINES = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  if (themeToggleBtn) {
+    themeToggleBtn.textContent = theme === "light" ? "Dark Mode" : "Light Mode";
+  }
+}
+
+function initTheme() {
+  const saved = localStorage.getItem("theme");
+  const theme = saved === "light" || saved === "dark" ? saved : "dark";
+  applyTheme(theme);
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme") || "dark";
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+}
+
+initTheme();
 
 function renderBoard() {
   boardEl.innerHTML = "";
@@ -89,3 +113,4 @@ restartBtn.addEventListener("click", resetGame);
 
 // initial load
 resetGame();
+
