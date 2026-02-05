@@ -1,90 +1,112 @@
-:root {
-  --bg: #0f172a;
-  --card: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --cell: #1f2937;
-  --cell-hover: #273449;
-  --border: #334155;
-  --accent: #60a5fa;
+/* Default: Dark theme */
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --cell:#1f2937;
+  --cellHover:#273449;
+  --border:#334155;
+  --accent:#60a5fa;
 }
 
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+/* Light theme overrides */
+[data-theme="light"]{
+  --bg:#f1f5f9;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --cell:#e2e8f0;
+  --cellHover:#cbd5e1;
+  --border:#94a3b8;
+  --accent:#2563eb;
 }
 
-.container {
-  width: min(520px, 92vw);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 22px;
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 
-.title {
-  margin: 0 0 10px;
-  font-size: 28px;
-  letter-spacing: 0.2px;
+.container{
+  width:min(520px,92vw);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
 }
 
-.status {
-  margin: 0 0 16px;
-  color: var(--muted);
+/* header row (title + theme button) */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
 }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+.title{
+  margin:0;
+  font-size:28px;
 }
 
-.cell {
-  aspect-ratio: 1 / 1;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--cell);
-  color: var(--text);
-  font-size: clamp(44px, 8vw, 70px);
-  font-weight: 700;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  user-select: none;
+.status{
+  margin:0 0 16px;
+  color:var(--muted);
 }
 
-.cell:hover {
-  background: var(--cell-hover);
+.board{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
 
-.cell:disabled {
-  cursor: not-allowed;
-  opacity: 0.85;
+.cell{
+  aspect-ratio:1/1;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--cell);
+  color:var(--text);
+  font-size:clamp(44px,8vw,70px);
+  font-weight:700;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  user-select:none;
 }
 
-.actions {
-  margin-top: 16px;
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
+.cell:hover{ background:var(--cellHover); }
+
+.cell:disabled{
+  cursor:not-allowed;
+  opacity:0.85;
 }
 
-.btn {
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
+.actions{
+  margin-top:16px;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
 }
 
-.btn:hover {
-  border-color: var(--accent);
+.btn{
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.btn:hover{ border-color:var(--accent); }
+
+/* optional: make the theme toggle button slightly tighter */
+#themeToggle{
+  padding:8px 12px;
 }
